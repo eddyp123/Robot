@@ -61,12 +61,11 @@ public class Robot {
         int x2 = robot2.xPos;
         int y2 = robot2.yPos;
 
-        int distance = Math.abs(x1 - x2) + Math.abs(y1-y2);
-
-        return distance;
+        return Math.abs(x1 - x2) + Math.abs(y1-y2);
     }
 
     //add input number to x or y position based on which way robot is facing
+    //then use the setters and getters to add the position moved to the methods of the robot object
     public void forward(int df){
         String direction = getDirection();
         int x = getXPos();
@@ -76,15 +75,19 @@ public class Robot {
             case "East":
                 x += df;
                 setXPos(x);
+                break;
             case "North":
                 y += df;
                 setYPos(y);
+                break;
             case "West":
                 x -= df;
                 setXPos(x);
+                break;
             case "South":
                 y -= df;
                 setYPos(y);
+                break;
         }
         System.out.println(getRobotName() + " moved forward " + df);
         //move the robot forward (in the direction the robot is facing) the number of units given
